@@ -1,0 +1,53 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  node:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=${DBURL}
+      - JWTSECRETKEY=${JWTSECRETKEY}
+      - AccountSID=${AccountSID}
+      - AuthToken=${AuthToken}
+      - TwilioNumber=${TwilioNumber}
+      - APP_EMAIL=${APP_EMAIL}
+      - APP_PASS=${APP_PASS}
+      - PHONE_PAY_HOST_URL=${PHONE_PAY_HOST_URL}
+      - MERCHANT_ID=${MERCHANT_ID}
+      - SALT_INDEX=${SALT_INDEX}
+      - SALT_KEY=${SALT_KEY}
+      - MINIO_ENDPOINT=${MINIO_ENDPOINT}
+      - MINIOPORT=${MINIOPORT}
+      - BUCKET=${BUCKET}
+      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
+      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
+  minio:
+    image: minio/minio
+    container_name: minio
+    restart: unless-stopped
+    ports:
+      - 9000:9000
+      - 9001:9001
+    environment:
+      MINIO_ROOT_USER: "minioadmin"
+      MINIO_ROOT_PASSWORD: "minioadmin"
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address :9001
+
+volumes:
+  mongo-data:
+  minio_data:
+networks:
+  foodApp-network:

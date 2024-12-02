@@ -1,0 +1,3316 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "FoodDelivery App",
+    "description": "Food App API's"
+  },
+  "host": "192.168.1.11:8089",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "User Api's"
+    },
+    {
+      "name": "UserCart",
+      "description": "Cart Api's"
+    },
+    {
+      "name": "Address",
+      "description": "Address Api's"
+    },
+    {
+      "name": "Products",
+      "description": "Product Api's"
+    },
+    {
+      "name": "bussiness",
+      "description": "bussiness Api's"
+    },
+    {
+      "name": "categories",
+      "description": "categories Api's"
+    },
+    {
+      "name": "productCategories",
+      "description": "productCategories Api's"
+    },
+    {
+      "name": "orders",
+      "description": "Order Api's"
+    },
+    {
+      "name": "review",
+      "description": "Review Api's"
+    },
+    {
+      "name": "image",
+      "description": "image Api's"
+    },
+    {
+      "name": "todayspecials",
+      "description": "todayspecials Api's"
+    },
+    {
+      "name": "bestchoice",
+      "description": "bestchoice Api's"
+    },
+    {
+      "name": "bestOffers",
+      "description": "bestOffer Api's"
+    },
+    {
+      "name": "search",
+      "description": "search Api"
+    }
+  ],
+  "schemes": [],
+  "consumes": [
+    "application/json",
+    "multipart/form-data"
+  ],
+  "produces": [
+    "application/json",
+    "multipart/form-data"
+  ],
+  "paths": {
+    "/user/signUp": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "mobile_no": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "country_code": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "role": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "mobile_no": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "role": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "country_code": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/sendOtp": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "mobile_no": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "country_code": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/verifyOtp": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "country_code": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "mobile_no": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "otp": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/update": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update User",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "required": false,
+            "type": "file",
+            "format": "binary"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "mobile_no",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "country_code",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "oldPassword",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "newPassword",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "confirmPassword",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/updatePassword": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "country_code": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "mobile_no": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "newPassword": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "confirmPassword": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/categories/": {
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Get all categories",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Create category",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Name of the category"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Description of the category"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "required": false,
+            "type": "file",
+            "items": {
+              "type": "file",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/categories/{id}": {
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Get category by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Update category",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Name of the category"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Description of the category"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "type": "file",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Delete category",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/categories/business/{id}": {
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Get categories by business id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "businessId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/subcategories/": {
+      "post": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Add sub category",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Name of the sub category"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": false,
+            "description": "Description of the sub category"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "ID of the parent category"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "type": "file",
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Get sub categories",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "categoryId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/productCategories/{category_id}": {
+      "get": {
+        "tags": [
+          "productCategories"
+        ],
+        "summary": "Get product categories",
+        "description": "",
+        "parameters": [
+          {
+            "name": "category_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/productCategories/{id}": {
+      "get": {
+        "tags": [
+          "productCategories"
+        ],
+        "summary": "Get product category by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "productCategories"
+        ],
+        "summary": "Update product category",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startingPrice",
+            "in": "formData",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "type": "file",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "productCategories"
+        ],
+        "summary": "Delete product category",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/productCategories/": {
+      "post": {
+        "tags": [
+          "productCategories"
+        ],
+        "summary": "Create product category",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startingPrice",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "type": "file",
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/business/nearby": {
+      "get": {
+        "tags": [
+          "bussiness"
+        ],
+        "summary": "Get nearby business",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "long",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "minDistance",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maxDistance",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/business/{id}": {
+      "get": {
+        "tags": [
+          "bussiness"
+        ],
+        "summary": "Get business details",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "bussiness"
+        ],
+        "summary": "Delete business",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/business/": {
+      "post": {
+        "tags": [
+          "bussiness"
+        ],
+        "summary": "Create business",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "businessName",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "ownerName",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "gstNo",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lat",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "long",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "required": false,
+            "type": "file",
+            "items": {
+              "type": "file",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/business/{businessId}": {
+      "put": {
+        "tags": [
+          "bussiness"
+        ],
+        "summary": "Update business",
+        "description": "",
+        "parameters": [
+          {
+            "name": "businessId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "businessName",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ownerName",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "gstNo",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "long",
+            "in": "formData",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "lat",
+            "in": "formData",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "type": "file",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/business/{id}/bankdetails": {
+      "post": {
+        "tags": [
+          "bussiness"
+        ],
+        "summary": "Add bank details",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "accountNo": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "ifscCode": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "bankName": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "accountHolderName": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/business/{id}/upidetails": {
+      "post": {
+        "tags": [
+          "bussiness"
+        ],
+        "summary": "Add upi details",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "upiId": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get product details",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Update product",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "subCategoryId",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "weight",
+            "in": "formData",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "discountPrice",
+            "in": "formData",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "quantity",
+            "in": "formData",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "units",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sizes",
+            "in": "formData",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "name": "isActive",
+            "in": "formData",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "packingCharge",
+            "in": "formData",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "businessId",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "images",
+            "in": "formData",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Delete product",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/products/business/{businessId}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get products by businessId",
+        "description": "",
+        "parameters": [
+          {
+            "name": "businessId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/products/": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get all products",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "findByName",
+            "in": "query",
+            "type": "string",
+            "description": "Filter by product name"
+          },
+          {
+            "name": "findByDescription",
+            "in": "query",
+            "type": "string",
+            "description": "Filter by product description"
+          },
+          {
+            "name": "sortByPrice",
+            "in": "query",
+            "type": "number",
+            "description": "Filter by product price"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "type": "string",
+            "description": "Filter by product category"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Upload product images and other details.",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Name of the product"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "subCategoryId",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "packingCharge",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "required": true,
+            "description": "Price of the product"
+          },
+          {
+            "name": "weight",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "Weight of the product"
+          },
+          {
+            "name": "discountPrice",
+            "in": "formData",
+            "type": "number",
+            "required": false,
+            "description": "Discounted price of the product"
+          },
+          {
+            "name": "quantity",
+            "in": "formData",
+            "type": "number",
+            "required": false,
+            "description": "Quantity of the product"
+          },
+          {
+            "name": "units",
+            "in": "formData",
+            "type": "number",
+            "required": false,
+            "description": "Units of measurement for the product"
+          },
+          {
+            "name": "sizes",
+            "in": "formData",
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "isActive",
+            "in": "formData",
+            "type": "boolean",
+            "required": true,
+            "description": "Whether the product is active"
+          },
+          {
+            "name": "businessId",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "images",
+            "in": "formData",
+            "type": "array",
+            "required": false,
+            "description": "Product images",
+            "collectionFormat": "multi",
+            "items": {
+              "type": "file",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bestoffers/restuarent/{id}": {
+      "get": {
+        "tags": [
+          "bestOffers"
+        ],
+        "summary": "Get all active best offers",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bestoffers/{id}": {
+      "get": {
+        "tags": [
+          "bestOffers"
+        ],
+        "summary": "Get best offer details",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "bestOffers"
+        ],
+        "summary": "Update best offer",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "businessId",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "isActive",
+            "in": "formData",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "offerName",
+            "in": "formData",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bestoffers/": {
+      "post": {
+        "tags": [
+          "bestOffers"
+        ],
+        "summary": "Create new best offer",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "businessId",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "isActive",
+            "in": "formData",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "offerName",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "file",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "bestOffers"
+        ],
+        "summary": "Get all active best offers",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bestoffers/product": {
+      "post": {
+        "tags": [
+          "bestOffers"
+        ],
+        "summary": "Add product to best offer",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "bestOfferId": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "productId": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "originalPrice": {
+                  "type": "string",
+                  "example": "number"
+                },
+                "offerPrice": {
+                  "type": "string",
+                  "example": "number"
+                },
+                "isActive": {
+                  "type": "string",
+                  "example": "boolean"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "bestOffers"
+        ],
+        "summary": "Remove product from best offer",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "bestOfferId": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "productId": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bestoffers/{bestOfferId}/{businessId}": {
+      "delete": {
+        "tags": [
+          "bestOffers"
+        ],
+        "summary": "Delete best offer",
+        "description": "",
+        "parameters": [
+          {
+            "name": "bestOfferId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "businessId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bestchoice/business/{id}": {
+      "get": {
+        "tags": [
+          "bestchoice"
+        ],
+        "summary": "Get restaurent best choices",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bestchoice/": {
+      "post": {
+        "tags": [
+          "bestchoice"
+        ],
+        "summary": "Create best choice",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "subCategoryId",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "formData",
+            "type": "file",
+            "format": "binary"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "number",
+            "required": true
+          },
+          {
+            "name": "weight",
+            "in": "formData",
+            "type": "number"
+          },
+          {
+            "name": "discountPrice",
+            "in": "formData",
+            "type": "number"
+          },
+          {
+            "name": "quantity",
+            "in": "formData",
+            "type": "number",
+            "required": true
+          },
+          {
+            "name": "units",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "sizes",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "isActive",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "packingCharge",
+            "in": "formData",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bestchoice/{id}": {
+      "delete": {
+        "tags": [
+          "bestchoice"
+        ],
+        "summary": "Remove best choice",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bestchoice/best-choice": {
+      "get": {
+        "tags": [
+          "bestchoice"
+        ],
+        "summary": "Get restaurent best choices",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/todayspecials/": {
+      "post": {
+        "tags": [
+          "todayspecials"
+        ],
+        "summary": "Create today special",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "categoryId": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "subCategoryId": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "images": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "price": {
+                  "type": "string",
+                  "example": "number"
+                },
+                "weight": {
+                  "type": "string",
+                  "example": "number"
+                },
+                "discountPrice": {
+                  "type": "string",
+                  "example": "number"
+                },
+                "quantity": {
+                  "type": "string",
+                  "example": "number"
+                },
+                "units": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "sizes": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "isActive": {
+                  "type": "string",
+                  "example": "boolean"
+                },
+                "packingCharge": {
+                  "type": "string",
+                  "example": "number"
+                },
+                "businessId": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "todayspecials"
+        ],
+        "summary": "Get All today specials",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/todayspecials/business/{id}": {
+      "get": {
+        "tags": [
+          "todayspecials"
+        ],
+        "summary": "Get today specials",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/todayspecials/{id}": {
+      "delete": {
+        "tags": [
+          "todayspecials"
+        ],
+        "summary": "Remove today special",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/orders/": {
+      "post": {
+        "tags": [
+          "orders"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "string"
+                    }
+                  }
+                },
+                "addressId": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "string"
+                    }
+                  }
+                },
+                "quantity": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/orders/placeOrder": {
+      "post": {
+        "tags": [
+          "orders"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "orderId": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/orders/status/{merchantTransactionId}": {
+      "get": {
+        "tags": [
+          "orders"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "merchantTransactionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/orders/refund/{merchantTransactionId}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "merchantTransactionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/address/": {
+      "post": {
+        "tags": [
+          "Address"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "flat_house_no": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "area_colony_street": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "address": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "country": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "mobile_no": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "user_id": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "isDefault": {
+                  "type": "string",
+                  "example": "boolean"
+                },
+                "pincode": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "bussinessId": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "coordinates": {
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "type": "string",
+                      "example": "number"
+                    },
+                    "long": {
+                      "type": "string",
+                      "example": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/address/{addressId}": {
+      "put": {
+        "tags": [
+          "Address"
+        ],
+        "summary": "Update Address",
+        "description": "",
+        "parameters": [
+          {
+            "name": "addressId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "flat_house_no": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "area_colony_street": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "address": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "country": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "mobile_no": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "user_id": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "isDefault": {
+                  "type": "string",
+                  "example": "boolean"
+                },
+                "pincode": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "bussinessId": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "coordinates": {
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "type": "string",
+                      "example": "number"
+                    },
+                    "long": {
+                      "type": "string",
+                      "example": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Address"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "addressId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/address/all": {
+      "get": {
+        "tags": [
+          "Address"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/address/{id}": {
+      "delete": {
+        "tags": [
+          "Address"
+        ],
+        "summary": "Delete Address By AddressId",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/cart/": {
+      "post": {
+        "tags": [
+          "UserCart"
+        ],
+        "summary": "Add item to cart",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "quantity": {
+                  "type": "string",
+                  "example": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "UserCart"
+        ],
+        "summary": "Get cart",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "UserCart"
+        ],
+        "summary": "Update cart",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "quantity": {
+                  "type": "string",
+                  "example": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "UserCart"
+        ],
+        "summary": "empty Cart",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/cart/cartOrder": {
+      "post": {
+        "tags": [
+          "UserCart"
+        ],
+        "summary": "Create cart order",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "addressId": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/cart/remove/{productId}": {
+      "delete": {
+        "tags": [
+          "UserCart"
+        ],
+        "summary": "Remove item from cart",
+        "description": "",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/images/{id}": {
+      "get": {
+        "tags": [
+          "image"
+        ],
+        "description": "",
+        "produces": [
+          "image/png"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/images/file/{filename}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "filename",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/review/": {
+      "post": {
+        "tags": [
+          "review"
+        ],
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "restaurantId",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rating",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "file",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/review/update/{id}": {
+      "put": {
+        "tags": [
+          "review"
+        ],
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "rating",
+            "in": "formData",
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "images",
+            "in": "formData",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "file",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/review/all/{restaurantId}": {
+      "get": {
+        "tags": [
+          "review"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "restaurantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/review/{reviewId}": {
+      "get": {
+        "tags": [
+          "review"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "review"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/search/": {
+      "post": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Create Search",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Get Recent Searches",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/search/popular": {
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Get Popular Searches",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
